@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use Spatie\TypeScriptTransformer\TypeScriptTransformerConfig;
+use Tests\Utils\TestFormRequest;
+use Tests\Utils\TestRequest;
 
 final class RequestCollectorTest extends TestCase
 {
@@ -50,18 +52,4 @@ floatName: number;
 STRING
             , $actual->toString());
     }
-}
-
-class TestRequest extends Request
-{
-    public readonly string $stringName;
-    public readonly int $intName;
-    public readonly float $floatName;
-}
-
-class TestFormRequest extends FormRequest
-{
-    public readonly string $stringName;
-    public readonly int $intName;
-    public readonly float $floatName;
 }

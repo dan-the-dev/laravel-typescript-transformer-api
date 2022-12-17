@@ -12,6 +12,11 @@ use Spatie\TypeScriptTransformer\Transformers\DtoTransformer;
 
 final class ResponseTransformer extends DtoTransformer
 {
+    protected function canTransform(ReflectionClass $class): bool
+    {
+        return $class->isSubclassOf(Response::class) || $class->isSubclassOf(SymfonyResponse::class);
+    }
+
     protected function resolveProperties(ReflectionClass $class): array
     {
         $properties = array_filter(

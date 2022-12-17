@@ -11,6 +11,11 @@ use Symfony\Component\HttpFoundation\Request;
 
 final class RequestTransformer extends DtoTransformer
 {
+    protected function canTransform(ReflectionClass $class): bool
+    {
+        return $class->isSubclassOf(Request::class);
+    }
+
     protected function resolveProperties(ReflectionClass $class): array
     {
         $properties = array_filter(

@@ -9,6 +9,7 @@ use Illuminate\Http\Response;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use Spatie\TypeScriptTransformer\TypeScriptTransformerConfig;
+use Tests\Utils\TestResponse;
 
 final class ResponseCollectorTest extends TestCase
 {
@@ -32,9 +33,3 @@ STRING
     }
 }
 
-class TestResponse extends Response
-{
-    public readonly string $stringName;
-    public readonly int $intName;
-    public readonly float $floatName;
-}
