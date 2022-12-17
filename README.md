@@ -1,9 +1,13 @@
 # Extension of `spatie/laravel-typescript-transformer` with improvements to work with API Requests and Responses
 
-This package is an extension of `spatie/laravel-typescript-transformer` that offers a Collector and a Transformer
-that can be used with `spatie/laravel-typescript-transformer` via the command `php artisan typescript:transform`: 
-- the RequestCollector imports all subclasses of Illuminate\Http\Request or Illuminate\Foundation\Http\FormRequest and include them into the transformation cycle 
-- the RequestTransformer transform the Illuminate\Http\Request or Illuminate\Foundation\Http\FormRequest subclasses into a type - excluding properties of the superclasses
+This package is an extension of `spatie/laravel-typescript-transformer` that offers two pairs of Collector and Transformer
+that can be used with `spatie/laravel-typescript-transformer` via the command `php artisan typescript:transform`:
+- the Request set allow you to transform all sublasses of Illuminate\Http\Request or Illuminate\Foundation\Http\FormRequest - to achieve this, you need:
+    - the RequestCollector (\Danthedev\LaravelTypescriptTransformerApi\Collectors\RequestCollector)
+    - the RequestTransformer (\Danthedev\LaravelTypescriptTransformerApi\Transformers\RequestTransformer)
+- the Response set allow you to transform all sublasses of Illuminate\Http\Response - to achieve this, you need:
+    - the ResponseCollector (\Danthedev\LaravelTypescriptTransformerApi\Collectors\ResponseCollector)
+    - the ResponseTransformer (\Danthedev\LaravelTypescriptTransformerApi\Transformers\ResponseTransformer)
 
 You can install the package via composer:
 
@@ -25,7 +29,7 @@ Build your Api using our traits to signal Request and Response objects.
 
 ```
 
-Apply collector to your `typescript-transformer.php` config file.
+Apply collectors and transformers to your `typescript-transformer.php` config file.
 
 ```php
 // config/typescript-transformer.php
@@ -34,11 +38,13 @@ return [
     // ...
     'collectors' => [
         \Danthedev\LaravelTypescriptTransformerApi\Collectors\RequestCollector::class,
+        \Danthedev\LaravelTypescriptTransformerApi\Collectors\ResponseCollector::class,
 
         // ...
     ],
     'transformers' => [
         \Danthedev\LaravelTypescriptTransformerApi\Transformers\RequestTransformer::class,
+        \Danthedev\LaravelTypescriptTransformerApi\Transformers\ResponseTransformer::class,
 
         // ...
     ],
