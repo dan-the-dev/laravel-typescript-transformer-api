@@ -1,9 +1,9 @@
 # Extension of `spatie/laravel-typescript-transformer` with improvements to work with API Requests and Responses
 
-This package is an extension of `spatie/laravel-typescript-transformer` that offers a Collector that can be used
-with `spatie/laravel-typescript-transformer` via the command `php artisan typescript:transform`; 
-the RequestCollector imports all classes that extends Illuminate\Http\Request or Illuminate\Foundation\Http\FormRequest
-and transform them into Typescript type.
+This package is an extension of `spatie/laravel-typescript-transformer` that offers a Collector and a Transformer
+that can be used with `spatie/laravel-typescript-transformer` via the command `php artisan typescript:transform`: 
+- the RequestCollector imports all subclasses of Illuminate\Http\Request or Illuminate\Foundation\Http\FormRequest and include them into the transformation cycle 
+- the RequestTransformer transform the Illuminate\Http\Request or Illuminate\Foundation\Http\FormRequest subclasses into a type - excluding properties of the superclasses
 
 You can install the package via composer:
 
