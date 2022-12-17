@@ -29,7 +29,8 @@ Build your Api using our traits to signal Request and Response objects.
 
 ```
 
-Apply collectors and transformers to your `typescript-transformer.php` config file.
+Apply collectors and transformers to your `typescript-transformer.php` config file
+(we suggest you put them before `spatie/laravel-typescript-transformer` collectors and transformars - order is not important between our classes, instead).
 
 ```php
 // config/typescript-transformer.php
