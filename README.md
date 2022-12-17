@@ -37,6 +37,12 @@ return [
 
         // ...
     ],
+    'transformers' => [
+        \Danthedev\LaravelTypescriptTransformerApi\Transformers\RequestTransformer::class,
+
+        // ...
+    ],
+    // ...
 ];
 ```
 
