@@ -1,11 +1,13 @@
-# A set of transformers for spatie/laravel-typescript-transformer
+# Extension of `spatie/laravel-typescript-transformer` with improvements to work with API Requests and Responses
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+This package is an extension of `spatie/laravel-typescript-transformer` that offers a Collector and some Traits you can use
+to build objects or data classes that describe your Request and Response for your Laravel APIs that will be automatically
+translate through `spatie/laravel-typescript-transformer` command `php artisan typescript:transform`.
 
 You can install the package via composer:
 
 ```bash
-composer require dinhdjj/laravel-typescript-transformer-extended
+composer require dan-the-dev/laravel-typescript-transformer-api
 ```
 
 ## Requirements
@@ -16,35 +18,28 @@ composer require dinhdjj/laravel-typescript-transformer-extended
 
 ## Usage
 
-Apply transformer to your `typescript-transformer.php` config file.
+Build your Api using our traits to signal Request and Response objects.
+
+```php
+
+```
+
+Apply collector to your `typescript-transformer.php` config file.
 
 ```php
 // config/typescript-transformer.php
 
 return [
     // ...
-    'transformers' => [
-        \Dinhdjj\TypescriptTransformerExtended\ModelTransformer::class,
-        \Dinhdjj\TypescriptTransformerExtended\EnumTransformer::class,
+    'collectors' => [
+        \DanTheDev\TypescriptTransformerApi\Collectors\ApiRequestResponseCollector::class,
 
         // ...
     ],
 ];
 ```
 
-## The effect of transformers
-
-The transformer to generate the typescript for laravel model. It require connect to database on generate.
-
-```php
-\Dinhdjj\TypescriptTransformerExtended\ModelTransformer::class
-```
-
-The transformer to generate the typescript for native php enum.
-
-```php
-\Dinhdjj\TypescriptTransformerExtended\EnumTransformer::class
-```
+Run command `php artisan typescript:transform` to transform to Typescript types all your Api Request and Response objects.
 
 ## Testing
 
