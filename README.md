@@ -23,7 +23,7 @@ composer require dan-the-dev/laravel-typescript-transformer-api
 
 ## Usage
 
-Build your Api using our traits to signal Request and Response objects.
+Build your Api extending Request and Response Illumante classes, then automatically transform them in Typescript types.
 
 ```php
 
