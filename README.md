@@ -12,7 +12,7 @@ that can be used with `spatie/laravel-typescript-transformer` via the command `p
 You can install the package via composer:
 
 ```bash
-composer require dan-the-dev/laravel-typescript-transformer-api
+composer require danthedev/laravel-typescript-transformer-api
 ```
 
 ## Requirements
