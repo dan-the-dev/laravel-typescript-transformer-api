@@ -19,7 +19,7 @@ composer require dan-the-dev/laravel-typescript-transformer-api
 
     * laravel 9+
     * Php 8.1+
-    * spatie/laravel-typescript-transformer: ^2.1
+    * spatie/laravel-typescript-transformer: ^2.1 [https://github.com/spatie/laravel-typescript-transformer]
 
 ## Usage
 
